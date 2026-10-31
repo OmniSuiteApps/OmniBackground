@@ -1,4 +1,4 @@
-# Diaporama
+# OmniBackground
 
 Fond d'écran animé Android qui fait défiler tes photos, sur l'écran d'accueil et l'écran de verrouillage.
 Interface en français et en anglais.
@@ -7,7 +7,7 @@ Interface en français et en anglais.
 
 ## Installer
 
-Télécharge `diaporama-x.y.apk` depuis la [dernière release](https://github.com/KrakenAgite/diaporama/releases/latest)
+Télécharge `diaporama-x.y.apk` depuis la [dernière release](https://github.com/OmniSuiteApps/diaporama/releases/latest)
 et ouvre-le sur le téléphone (Android 15 ou plus).
 
 Puis, dans l'app :

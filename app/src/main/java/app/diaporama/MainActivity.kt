@@ -150,7 +150,7 @@ fun SettingsScreen(s: Settings, isActive: Boolean) {
         key(rev) {
             val current = page
             if (current == null) {
-                Text("Diaporama", style = MaterialTheme.typography.headlineMedium, modifier = Modifier.padding(vertical = 16.dp))
+                Text("OmniBackground", style = MaterialTheme.typography.headlineMedium, modifier = Modifier.padding(vertical = 16.dp))
                 if (!isActive) {
                     Row(
                         Modifier.fillMaxWidth().padding(bottom = 12.dp).clip(CARD)
@@ -159,7 +159,7 @@ fun SettingsScreen(s: Settings, isActive: Boolean) {
                         verticalAlignment = Alignment.CenterVertically,
                     ) {
                         Column(Modifier.weight(1f)) {
-                            Text(tr("Diaporama n'est pas ton fond d'écran", "Diaporama isn't your wallpaper"), style = MaterialTheme.typography.titleSmall)
+                            Text(tr("OmniBackground n'est pas ton fond d'écran", "OmniBackground isn't your wallpaper"), style = MaterialTheme.typography.titleSmall)
                             Text(
                                 tr("Choisis « Écran d'accueil et écran de verrouillage »", "Choose “Home and lock screens”"),
                                 style = MaterialTheme.typography.bodySmall,
@@ -414,7 +414,7 @@ private fun AboutPage(s: Settings, change: (() -> Unit) -> Unit) {
     }
     if (s.autoInstall && !canInstall) {
         Row(verticalAlignment = Alignment.CenterVertically) {
-            Box(Modifier.weight(1f)) { HintText(tr("Diaporama n'a pas le droit d'installer.", "Diaporama can't install apps yet.")) }
+            Box(Modifier.weight(1f)) { HintText(tr("OmniBackground n'a pas le droit d'installer.", "OmniBackground can't install apps yet.")) }
             TextButton(onClick = ::allowInstalls) { Text(tr("Autoriser", "Allow")) }
         }
     }
@@ -427,17 +427,17 @@ private fun AboutPage(s: Settings, change: (() -> Unit) -> Unit) {
                 val newer = updater.check(force = true)
                 checking = false
                 change {}
-                toast(newer?.let { tr("Diaporama ${it.version} est disponible", "Diaporama ${it.version} is available") } ?: tr("Diaporama est à jour", "Diaporama is up to date"))
+                toast(newer?.let { tr("OmniBackground ${it.version} est disponible", "OmniBackground ${it.version} is available") } ?: tr("OmniBackground est à jour", "OmniBackground is up to date"))
             }
         },
     ) { Text(if (checking) tr("Vérification…", "Checking…") else tr("Vérifier maintenant", "Check now")) }
     if (s.updatesEnabled && !canNotify) {
         Row(verticalAlignment = Alignment.CenterVertically) {
-            Box(Modifier.weight(1f)) { HintText(tr("Notifications bloquées pour Diaporama.", "Notifications are blocked for Diaporama.")) }
+            Box(Modifier.weight(1f)) { HintText(tr("Notifications bloquées pour OmniBackground.", "Notifications are blocked for OmniBackground.")) }
             TextButton(onClick = { askNotify.launch(Manifest.permission.POST_NOTIFICATIONS) }) { Text(tr("Autoriser", "Allow")) }
         }
     }
-    SettingRow(tr("Code source", "Source code"), "github.com/KrakenAgite/diaporama", tr("Ouvrir", "Open"), tonal = false) {
+    SettingRow(tr("Code source", "Source code"), "github.com/OmniSuiteApps/diaporama", tr("Ouvrir", "Open"), tonal = false) {
         ctx.startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(UpdateCheck.RELEASES_PAGE)))
     }
 }

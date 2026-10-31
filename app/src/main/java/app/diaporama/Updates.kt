@@ -31,8 +31,8 @@ data class Release(val version: String, val url: String, val apkUrl: String? = n
 
 /** Dernière release publiée sur GitHub et comparaison avec la version installée (pur). */
 object UpdateCheck {
-    const val LATEST_URL = "https://api.github.com/repos/KrakenAgite/diaporama/releases/latest"
-    const val RELEASES_PAGE = "https://github.com/KrakenAgite/diaporama/releases"
+    const val LATEST_URL = "https://api.github.com/repos/OmniSuiteApps/diaporama/releases/latest"
+    const val RELEASES_PAGE = "https://github.com/OmniSuiteApps/diaporama/releases"
     fun parse(json: String): Release? = runCatching {
         val root = JSONObject(json)
         if (root.optBoolean("draft") || root.optBoolean("prerelease")) return null
@@ -87,7 +87,7 @@ class Updater(context: Context) {
     val installed: String =
         runCatching { app.packageManager.getPackageInfo(app.packageName, 0).versionName }.getOrNull().orEmpty()
 
-    /** « Installer des applis inconnues » autorisé pour Diaporama. */
+    /** « Installer des applis inconnues » autorisé pour OmniBackground. */
     fun canInstall(): Boolean = app.packageManager.canRequestPackageInstalls()
 
     fun canNotify(): Boolean = app.checkSelfPermission(Manifest.permission.POST_NOTIFICATIONS) == PackageManager.PERMISSION_GRANTED
@@ -181,9 +181,9 @@ class Updater(context: Context) {
         }
         notify(
             app, NOTIFICATION_AVAILABLE,
-            tr("Diaporama ${release.version} est disponible", "Diaporama ${release.version} is available"),
+            tr("OmniBackground ${release.version} est disponible", "OmniBackground ${release.version} is available"),
             if (canInstall()) tr("Touche pour l'installer", "Tap to install it")
-            else tr("Touche pour autoriser Diaporama à installer ses mises à jour", "Tap to let Diaporama install its updates"),
+            else tr("Touche pour autoriser OmniBackground à installer ses mises à jour", "Tap to let OmniBackground install its updates"),
             open,
         )
         return true
@@ -217,7 +217,7 @@ class Updater(context: Context) {
     }
 }
 
-/** Juste après une mise à jour de Diaporama (par l'app ou à la main) : y en a-t-il déjà une autre ? */
+/** Juste après une mise à jour d'OmniBackground (par l'app ou à la main) : y en a-t-il déjà une autre ? */
 class UpdatedReceiver : BroadcastReceiver() {
     override fun onReceive(context: Context, intent: Intent) {
         if (intent.action != Intent.ACTION_MY_PACKAGE_REPLACED) return
@@ -248,7 +248,7 @@ class InstallResultReceiver : BroadcastReceiver() {
                 if (runCatching { context.startActivity(confirm) }.isFailure) {
                     Updater.notify(
                         context, Updater.NOTIFICATION_READY,
-                        tr("Mise à jour de Diaporama prête", "Diaporama update ready"),
+                        tr("Mise à jour d'OmniBackground prête", "OmniBackground update ready"),
                         tr("Touche pour l'installer", "Tap to install it"),
                         PendingIntent.getActivity(context, 1, confirm, PendingIntent.FLAG_IMMUTABLE or PendingIntent.FLAG_UPDATE_CURRENT),
                     )
