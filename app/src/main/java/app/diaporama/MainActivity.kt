@@ -437,7 +437,7 @@ private fun AboutPage(s: Settings, change: (() -> Unit) -> Unit) {
             TextButton(onClick = { askNotify.launch(Manifest.permission.POST_NOTIFICATIONS) }) { Text(tr("Autoriser", "Allow")) }
         }
     }
-    SettingRow(tr("Code source", "Source code"), "github.com/OmniSuiteApps/diaporama", tr("Ouvrir", "Open"), tonal = false) {
+    SettingRow(tr("Code source", "Source code"), "github.com/OmniSuiteApps/OmniBackground", tr("Ouvrir", "Open"), tonal = false) {
         ctx.startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(UpdateCheck.RELEASES_PAGE)))
     }
 }

@@ -31,8 +31,8 @@ data class Release(val version: String, val url: String, val apkUrl: String? = n
 
 /** Dernière release publiée sur GitHub et comparaison avec la version installée (pur). */
 object UpdateCheck {
-    const val LATEST_URL = "https://api.github.com/repos/OmniSuiteApps/diaporama/releases/latest"
-    const val RELEASES_PAGE = "https://github.com/OmniSuiteApps/diaporama/releases"
+    const val LATEST_URL = "https://api.github.com/repos/OmniSuiteApps/OmniBackground/releases/latest"
+    const val RELEASES_PAGE = "https://github.com/OmniSuiteApps/OmniBackground/releases"
     fun parse(json: String): Release? = runCatching {
         val root = JSONObject(json)
         if (root.optBoolean("draft") || root.optBoolean("prerelease")) return null

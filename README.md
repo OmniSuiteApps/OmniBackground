@@ -7,7 +7,7 @@ Interface en français et en anglais.
 
 ## Installer
 
-Télécharge `diaporama-x.y.apk` depuis la [dernière release](https://github.com/OmniSuiteApps/diaporama/releases/latest)
+Télécharge `OmniBackground-x.y.apk` depuis la [dernière release](https://github.com/OmniSuiteApps/OmniBackground/releases/latest)
 et ouvre-le sur le téléphone (Android 15 ou plus).
 
 Puis, dans l'app :
